@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="highcharts.js"></script>
+  <script src="exporting.js"></script>
+  <script src="export-data.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .highcharts-axis-labels span.active {
+      font-weight: bold;
+      color: #f37198 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container" style="height: 300px"></div>
+  <script>
+    /*var arr = window.location.search.split("&");
+    //data
+    var v = arr[0].split("=");
+    var arr_values = v[1].split(",");
+
+    var values = [];
+    for (let index = 0; index < arr_values.length; index++) {
+      values.push(parseFloat(arr_values[index]));
+    }
+    console.log(values)
+    // x labels
+    var labels = [];
+    var l = arr[1].split("=");
+    var l_values = l[1].split(",");
+
+    // // height
+    var h_arr = arr[2].split("=");
+    var h_value = h_arr[1];
+
+    //width
+    var w_arr = arr[3].split("=");
+    var w_value = w_arr[1];
+
+    for (let index = 0; index < l_values.length; index++) {
+      labels.push(l_values[index]);
+    }
+    var i = 0;
+*/
+    Highcharts.chart('container', {
+      title: {
+        text: null
+      },
+
+      chart: {
+        type: "areaspline",
+        spacingLeft: 0,
+        spacingRight: 10,
+        width: 870,
+        //zoomType: 'x',
+
+        events: {
+          load: function () {
+            var chart = this,
+              series = this.series[0],
+              xAxis = chart.xAxis[0],
+              newStart = series.xData[1],
+              newEnd = series.xData[10];
+
+            xAxis.setExtremes(newStart, newEnd);
+          }
+        }
+      },
+
+      tooltip: {
+        pointFormat: "<b>{point.y}</b>",
+        backgroundColor: null,
+        style: {
+          color: "#174285",
+          padding: 0,
+          fontSize: "18px"
+        },
+        shadow: 0,
+        borderWidth: 0,
+        outside: true,
+        useHTML: true,
+        formatter: function () {
+          return "<b>₹ " + parseFloat(this.y).toFixed(2) + "</b>";
+        }
+      },
+
+      plotOptions: {
+        areaspline: {
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+            stops: [
+              [0, Highcharts.Color("#174285").setOpacity(0.5).get('rgba')],
+              [1, Highcharts.Color("white").setOpacity(0).get('rgba')]
+            ]
+          },
+
+          lineColor: "#174285",
+          lineWidth: 2.5,
+          marker: {
+            enabled: true,
+            symbol: "circle",
+            radius: 8,
+            fillColor: {
+              linearGradient: {
+                x1: 0,
+                y1: 0,
+                x2: 0,
+                y2: 1
+              },
+              stops: [
+                [0, Highcharts.Color("#174285").setOpacity(1).get('rgba')],
+                [1, Highcharts.Color("#0079AA").setOpacity(1).get('rgba')]
+              ]
+            },
+            lineColor: "white",
+            lineWidth: 2,
+            states: {
+              hover: {
+                enabled: true,
+                radiusPlus: 0,
+                lineWidthPlus: 0
+              }
+            }
+          },
+          states: {
+            hover: {
+              lineWidthPlus: 0,
+              halo: {
+                opacity: 0.5,
+                size: 19,
+                attributes: {
+                  fill: "#174285",
+                }
+              },
+            },
+          },
+        }
+      },
+
+      xAxis: {
+        allowDecimals: false,
+        categories: ['29/04', '30/04', '31/04', '1/05', '2/05', '3/05', '4/05', '5/05', '6/05', '7/05', '8/05',
+          '9/05'
+        ],
+        gridLineWidth: 1,
+        gridLineColor: '#F3F0F0',
+        tickmarkPlacement: 'on',
+        lineWidth: 0,
+        opposite: true,
+        startOnTick: true,
+        labels: {
+          style: {
+            color: "#174285",
+            fontSize: "12px",
+            textOverflow: "none"
+          },
+        },
+      },
+
+      legend: {
+        enabled: false
+      },
+      credits: {
+        enabled: false
+      },
+
+      yAxis: {
+        visible: false,
+      },
+
+      series: [{
+        data: [90, 100, 119, 125, 121, 110, 90, 80, 76, 80, 100, 150],
+      }]
+
+    });
+  </script>
+</body>
+
+</html>

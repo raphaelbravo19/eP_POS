@@ -1,0 +1,688 @@
+name: epaisa_pos
+description: A new Flutter project.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 2.0.83+83
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.15.8
+  cupertino_icons: ^0.1.2
+  rxdart: ^0.22.0
+  bloc: ^0.15.0
+  flutter_bloc: ^0.21.0
+  equatable: ^0.5.1
+  flutter_responsive_screen: ^1.0.0
+  sqflite: any
+  sprintf: ^4.0.2
+  http_parser: ^3.1.3
+  email_validator: "^1.0.0"
+  http: ^0.12.0+2
+  uuid: ^2.0.1
+  shared_preferences: ^0.5.3+1
+  url_launcher: ^5.1.1
+  speech_recognition:
+    path: ./packages/speech_recognition/
+  permission_handler: ^3.2.1+1
+  image_picker: ^0.6.1+2
+  sticky_headers: "^0.1.8"
+  flutter_slidable: ^0.5.3
+  audioplayers: ^0.13.1
+  instabug_flutter: ^1.0.0-beta.5
+  encrypt: ^3.3.1
+  webview_flutter: ^0.3.11+4
+  flutter_swiper: ^1.1.6
+  jaguar: ^2.4.36
+  jaguar_flutter_asset: ^2.2.0
+  flutter_webview_plugin: ^0.3.7
+  geolocator:
+  geocoder: any
+  file_picker: ^1.4.3+1
+  #flutter_inappbrowser: ^0.0.1
+  flutter_inappbrowser: any
+  flutter_full_pdf_viewer:
+  #jaguar_flutter_asset: ^2.2.0
+  barcode_scan:
+    path: ./packages/flutter_barcode_reader/
+  flutter_datetime_picker: ^1.2.6
+  chopper: ^2.4.1
+  flutter_colorpicker: ^0.2.6
+  path_provider: ^1.4.4
+  provider: ^3.0.0+1
+  moor_flutter: ^1.7.0
+  dio: ^2.1.0
+  open_file: ^2.0.1+2
+  flutter_statusbar_manager:
+    git: https://github.com/guitcastro/flutter_statusbar_manager.git
+  biometric_plugin:
+    path: ./packages/biometric
+  rainbow_gradient: ^0.0.1
+  image: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  chopper_generator: ^2.3.4
+  moor_generator: ^1.7.0
+  build_runner:
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/json/
+    - assets/splashscreen/epaisa_logo.png
+    - assets/splashscreen/background.png
+    - assets/splashscreen/background_landscape.png
+    - assets/loginscreen/ep_logo.png
+    - assets/loginscreen/background.png
+    - assets/loginscreen/background_landscape.png
+    - assets/loginscreen/white_background.png
+    - assets/dashboard/analytics_on.png
+    - assets/dashboard/analytics_off.png
+    - assets/dashboard/billing_on.png
+    - assets/dashboard/billing_off.png
+    - assets/dashboard/customer_on.png
+    - assets/dashboard/customer_off.png
+    - assets/dashboard/inventory_on.png
+    - assets/dashboard/inventory_off.png
+    - assets/dashboard/loyalty_on.png
+    - assets/dashboard/loyalty_off.png
+    - assets/dashboard/payment_on.png
+    - assets/dashboard/payment_off.png
+    - assets/dashboard/vas_on.png
+    - assets/dashboard/vas_off.png
+    - assets/dashboard/exit.png
+    - assets/dashboard/bell.png
+    - assets/dashboard/profile_on.png
+    - assets/dashboard/settings_on.png
+    - assets/loginscreen/white_background.png
+    - assets/dashboardscreen/upgrade.png
+    - assets/dashboardscreen/upgrade_landscape.png
+    - assets/dashboardscreen/loyalty.png
+    - assets/dashboardscreen/loyalty_landscape.png
+    - assets/payments/cart.png
+    - assets/manufacturerscreen/cocacola.png
+    - assets/payments/icons/Invoice.png
+    - assets/payments/icons/aadhaarpay.png
+    - assets/payments/grid.png
+    - assets/payments/list.png
+    - assets/payments/mic.png
+    - assets/payments/icons/aadhaarpay_disabled.png
+    - assets/payments/icons/aadhaarpay_main.png
+    - assets/payments/icons/card.png
+    - assets/payments/arrowdw.png
+    - assets/payments/arrowup.png
+    - assets/payments/icons/card_disabled.png
+    - assets/payments/icons/card_main.png
+    - assets/payments/icons/cash.png
+    - assets/payments/icons/cashpos.png
+    - assets/payments/icons/cashpos_main.png
+    - assets/payments/icons/cashpos_disabled.png
+    - assets/payments/icons/cash_disabled.png
+    - assets/payments/icons/cash_main.png
+    - assets/payments/icons/cheque.png
+    - assets/payments/icons/cheque_disabled.png
+    - assets/payments/icons/cheque_main.png
+    - assets/payments/icons/citrus.png
+    - assets/payments/icons/citrus_disabled.png
+    - assets/payments/icons/citrus_main.png
+    - assets/payments/icons/diners.png
+    - assets/payments/icons/diners_disabled.png
+    - assets/payments/icons/discover.png
+    - assets/payments/icons/discover_disabled.png
+    - assets/payments/icons/emi.png
+    - assets/payments/icons/emi_disabled.png
+    - assets/payments/icons/emi_main.png
+    - assets/payments/icons/credit_main.png
+    - assets/payments/icons/printer_main.png
+    - assets/payments/icons/invoice_main.png
+    - assets/payments/icons/freecharge.png
+    - assets/payments/icons/freecharge_disabled.png
+    - assets/payments/icons/freecharge_main.png
+    - assets/payments/icons/maestro.png
+    - assets/payments/icons/maestro_disabled.png
+    - assets/payments/icons/mastercard.png
+    - assets/payments/icons/mastercard_disabled.png
+    - assets/payments/icons/mobikwik.png
+    - assets/payments/icons/mobikwik_disabled.png
+    - assets/payments/icons/mobikwik_main.png
+    - assets/payments/icons/mpesa.png
+    - assets/payments/icons/mpesa_disabled.png
+    - assets/payments/icons/mpesa_main.png
+    - assets/payments/icons/olamoney.png
+    - assets/payments/icons/olamoney_disabled.png
+    - assets/payments/icons/olamoney_main.png
+    - assets/payments/icons/others.png
+    - assets/payments/icons/others_disabled.png
+    - assets/payments/icons/pockets.png
+    - assets/payments/icons/pockets_disabled.png
+    - assets/payments/icons/pockets_main.png
+    - assets/payments/icons/rupay.png
+    - assets/payments/icons/loyalty_main.png
+    - assets/payments/icons/rupay_disabled.png
+    - assets/payments/icons/split.png
+    - assets/payments/icons/split_disabled.png
+    - assets/payments/icons/split_main.png
+    - assets/payments/icons/tendering.png
+    - assets/payments/icons/tendering_disabled.png
+    - assets/payments/icons/upi.png
+    - assets/payments/icons/cash_sh_main.png
+    - assets/payments/icons/card_sh_main.png
+    - assets/payments/icons/cheque_sh_main.png
+    - assets/payments/icons/emi_sh_main.png
+    - assets/payments/icons/upi_sh_main.png
+    - assets/payments/icons/upiscan_sh_main.png
+    - assets/payments/icons/pockets_sh_main.png
+    - assets/payments/icons/freecharge_sh_main.png
+    - assets/payments/icons/mobik_sh_main.png
+    - assets/payments/icons/mpesa_sh_main.png
+    - assets/payments/icons/ola_sh_main.png
+    - assets/payments/icons/citrus_sh_main.png
+    - assets/payments/icons/upiqr.png
+    - assets/payments/icons/upiqr_disabled.png
+    - assets/payments/icons/upiqr_main.png
+    - assets/payments/icons/upi_disabled.png
+    - assets/payments/icons/upi_main.png
+    - assets/payments/icons/upi_payments.png
+    - assets/payments/icons/upi_payments_disabled.png
+    - assets/payments/icons/upi_payments_main.png
+    - assets/payments/icons/visa.png
+    - assets/payments/icons/visa_disabled.png
+    - assets/payments/icons/wallets.png
+    - assets/payments/icons/wallets_disabled.png
+    - assets/payments/icons/wallets_main.png
+    - assets/payments/icons/TenderingOn.png
+    - assets/sounds/payment_success.mp3
+    - assets/productsscreen/qrscanner.png
+    - assets/header/sidelist.png
+    - assets/header/stack.png
+    - assets/header/plusicon.png
+    - assets/header/leftarrow.png
+    - assets/general_icons/calendar.png
+    - assets/general_icons/search.png
+    - assets/general_icons/settings.png
+    - assets/general_icons/xbutton.png
+    - assets/general_icons/Rounded.png
+    - assets/general_icons/alert.png
+    - assets/general_icons/add_customer.png
+    - assets/general_icons/epaisa_icon.png
+    - assets/general_icons/minus.png
+    - assets/general_icons/plus.png
+    - assets/general_icons/check.png
+    - assets/packages/plusiconblue.png
+    - assets/packages/plusicon.png
+    - assets/general_icons/edit.png
+    - assets/general_icons/NoPrinter.png
+    - assets/general_icons/NoCardReader.png
+    - assets/general_icons/NoCashDrawer.png
+    - assets/leftdrawer/notification.png
+    - assets/leftdrawer/signout.png
+    - assets/leftdrawer/analytics.png
+    - assets/leftdrawer/categories.png
+    - assets/leftdrawer/bluetooth.png
+    - assets/leftdrawer/help.png
+    - assets/leftdrawer/cashdrawer.png
+    - assets/leftdrawer/customers.png
+    - assets/leftdrawer/inventory.png
+    - assets/leftdrawer/loyalty.png
+    - assets/leftdrawer/pos.png
+    - assets/leftdrawer/settings.png
+    - assets/leftdrawer/transactions.png
+    - assets/leftdrawer/vas.png
+    - assets/leftdrawer/quick.png
+    - assets/leftdrawer/quick_opt.png
+    - assets/leftdrawer/products.png
+    - assets/leftdrawer/distributors.png
+    - assets/leftdrawer/inventory_movement.png
+    - assets/leftdrawer/inventory_movement_p.png
+    - assets/leftdrawer/manufacturers.png
+    - assets/leftdrawer/packages.png
+    - assets/leftdrawer/promotions.png
+    - assets/leftdrawer/value.png
+    - assets/help/live_chat.png
+    - assets/help/support.png
+    - assets/help/teamviewer.png
+    - assets/help/html/index.html
+    - assets/help/html/app.js
+    - assets/flags/AD_64.png
+    - assets/flags/AE_64.png
+    - assets/flags/AF_64.png
+    - assets/flags/AG_64.png
+    - assets/flags/AI_64.png
+    - assets/flags/AL_64.png
+    - assets/flags/AM_64.png
+    - assets/flags/AN_64.png
+    - assets/flags/AO_64.png
+    - assets/flags/AQ_64.png
+    - assets/flags/AR_64.png
+    - assets/flags/AS_64.png
+    - assets/flags/AT_64.png
+    - assets/flags/AU_64.png
+    - assets/flags/AW_64.png
+    - assets/flags/AX_64.png
+    - assets/flags/AZ_64.png
+    - assets/flags/BA_64.png
+    - assets/flags/BB_64.png
+    - assets/flags/BD_64.png
+    - assets/flags/BE_64.png
+    - assets/flags/BF_64.png
+    - assets/flags/BG_64.png
+    - assets/flags/BH_64.png
+    - assets/flags/BI_64.png
+    - assets/flags/BJ_64.png
+    - assets/flags/BL_64.png
+    - assets/flags/BM_64.png
+    - assets/flags/BN_64.png
+    - assets/flags/BO_64.png
+    - assets/flags/BQ_64.png
+    - assets/flags/BR_64.png
+    - assets/flags/BS_64.png
+    - assets/flags/BT_64.png
+    - assets/flags/BV_64.png
+    - assets/flags/BW_64.png
+    - assets/flags/BY_64.png
+    - assets/flags/BZ_64.png
+    - assets/flags/CA_64.png
+    - assets/flags/CC_64.png
+    - assets/flags/CD_64.png
+    - assets/flags/CF_64.png
+    - assets/flags/CG_64.png
+    - assets/flags/CH_64.png
+    - assets/flags/CI_64.png
+    - assets/flags/CK_64.png
+    - assets/flags/CL_64.png
+    - assets/flags/CM_64.png
+    - assets/flags/CN_64.png
+    - assets/flags/CO_64.png
+    - assets/flags/CR_64.png
+    - assets/flags/CU_64.png
+    - assets/flags/CV_64.png
+    - assets/flags/CW_64.png
+    - assets/flags/CX_64.png
+    - assets/flags/CY_64.png
+    - assets/flags/CZ_64.png
+    - assets/flags/DE_64.png
+    - assets/flags/DJ_64.png
+    - assets/flags/DK_64.png
+    - assets/flags/DM_64.png
+    - assets/flags/DO_64.png
+    - assets/flags/DZ_64.png
+    - assets/flags/EC_64.png
+    - assets/flags/EE_64.png
+    - assets/flags/EG_64.png
+    - assets/flags/EH_64.png
+    - assets/flags/ER_64.png
+    - assets/flags/ES_64.png
+    - assets/flags/ET_64.png
+    - assets/flags/EU_64.png
+    - assets/flags/FI_64.png
+    - assets/flags/FJ_64.png
+    - assets/flags/FK_64.png
+    - assets/flags/FM_64.png
+    - assets/flags/FO_64.png
+    - assets/flags/FR_64.png
+    - assets/flags/GA_64.png
+    - assets/flags/GB_64.png
+    - assets/flags/GD_64.png
+    - assets/flags/GE_64.png
+    - assets/flags/GF_64.png
+    - assets/flags/GG_64.png
+    - assets/flags/GH_64.png
+    - assets/flags/GI_64.png
+    - assets/flags/GL_64.png
+    - assets/flags/GM_64.png
+    - assets/flags/GN_64.png
+    - assets/flags/GP_64.png
+    - assets/flags/GQ_64.png
+    - assets/flags/GR_64.png
+    - assets/flags/GS_64.png
+    - assets/flags/GT_64.png
+    - assets/flags/GU_64.png
+    - assets/flags/GW_64.png
+    - assets/flags/GY_64.png
+    - assets/flags/HK_64.png
+    - assets/flags/HM_64.png
+    - assets/flags/HN_64.png
+    - assets/flags/HR_64.png
+    - assets/flags/HT_64.png
+    - assets/flags/HU_64.png
+    - assets/flags/IC_64.png
+    - assets/flags/ID_64.png
+    - assets/flags/IE_64.png
+    - assets/flags/IL_64.png
+    - assets/flags/IM_64.png
+    - assets/flags/IN_64.png
+    - assets/flags/IO_64.png
+    - assets/flags/IQ_64.png
+    - assets/flags/IR_64.png
+    - assets/flags/IS_64.png
+    - assets/flags/IT_64.png
+    - assets/flags/JE_64.png
+    - assets/flags/JM_64.png
+    - assets/flags/JO_64.png
+    - assets/flags/JP_64.png
+    - assets/flags/KE_64.png
+    - assets/flags/KG_64.png
+    - assets/flags/KH_64.png
+    - assets/flags/KI_64.png
+    - assets/flags/KM_64.png
+    - assets/flags/KN_64.png
+    - assets/flags/KP_64.png
+    - assets/flags/KR_64.png
+    - assets/flags/KW_64.png
+    - assets/flags/KY_64.png
+    - assets/flags/KZ_64.png
+    - assets/flags/LA_64.png
+    - assets/flags/LB_64.png
+    - assets/flags/LC_64.png
+    - assets/flags/LI_64.png
+    - assets/flags/LK_64.png
+    - assets/flags/LR_64.png
+    - assets/flags/LS_64.png
+    - assets/flags/LT_64.png
+    - assets/flags/LU_64.png
+    - assets/flags/LV_64.png
+    - assets/flags/LY_64.png
+    - assets/flags/MA_64.png
+    - assets/flags/MC_64.png
+    - assets/flags/MD_64.png
+    - assets/flags/ME_64.png
+    - assets/flags/MF_64.png
+    - assets/flags/MG_64.png
+    - assets/flags/MH_64.png
+    - assets/flags/MK_64.png
+    - assets/flags/ML_64.png
+    - assets/flags/MM_64.png
+    - assets/flags/MN_64.png
+    - assets/flags/MO_64.png
+    - assets/flags/MP_64.png
+    - assets/flags/MQ_64.png
+    - assets/flags/MR_64.png
+    - assets/flags/MS_64.png
+    - assets/flags/MT_64.png
+    - assets/flags/MU_64.png
+    - assets/flags/MV_64.png
+    - assets/flags/MW_64.png
+    - assets/flags/MX_64.png
+    - assets/flags/MY_64.png
+    - assets/flags/MZ_64.png
+    - assets/flags/NA_64.png
+    - assets/flags/NC_64.png
+    - assets/flags/NE_64.png
+    - assets/flags/NF_64.png
+    - assets/flags/NG_64.png
+    - assets/flags/NI_64.png
+    - assets/flags/NL_64.png
+    - assets/flags/NO_64.png
+    - assets/flags/NP_64.png
+    - assets/flags/NR_64.png
+    - assets/flags/NU_64.png
+    - assets/flags/NZ_64.png
+    - assets/flags/OM_64.png
+    - assets/flags/PA_64.png
+    - assets/flags/PE_64.png
+    - assets/flags/PF_64.png
+    - assets/flags/PG_64.png
+    - assets/flags/PH_64.png
+    - assets/flags/PK_64.png
+    - assets/flags/PL_64.png
+    - assets/flags/PM_64.png
+    - assets/flags/PN_64.png
+    - assets/flags/PR_64.png
+    - assets/flags/PS_64.png
+    - assets/flags/PT_64.png
+    - assets/flags/PW_64.png
+    - assets/flags/PY_64.png
+    - assets/flags/QA_64.png
+    - assets/flags/RE_64.png
+    - assets/flags/RO_64.png
+    - assets/flags/RS_64.png
+    - assets/flags/RU_64.png
+    - assets/flags/RW_64.png
+    - assets/flags/SA_64.png
+    - assets/flags/SB_64.png
+    - assets/flags/SC_64.png
+    - assets/flags/SD_64.png
+    - assets/flags/SE_64.png
+    - assets/flags/SG_64.png
+    - assets/flags/SH_64.png
+    - assets/flags/SI_64.png
+    - assets/flags/SJ_64.png
+    - assets/flags/SK_64.png
+    - assets/flags/SL_64.png
+    - assets/flags/SM_64.png
+    - assets/flags/SN_64.png
+    - assets/flags/SO_64.png
+    - assets/flags/SR_64.png
+    - assets/flags/SS_64.png
+    - assets/flags/ST_64.png
+    - assets/flags/SV_64.png
+    - assets/flags/SX_64.png
+    - assets/flags/SY_64.png
+    - assets/flags/SZ_64.png
+    - assets/flags/TC_64.png
+    - assets/flags/TD_64.png
+    - assets/flags/TF_64.png
+    - assets/flags/TG_64.png
+    - assets/flags/TH_64.png
+    - assets/flags/TJ_64.png
+    - assets/flags/TK_64.png
+    - assets/flags/TL_64.png
+    - assets/flags/TM_64.png
+    - assets/flags/TN_64.png
+    - assets/flags/TO_64.png
+    - assets/flags/TR_64.png
+    - assets/flags/TT_64.png
+    - assets/flags/TV_64.png
+    - assets/flags/TW_64.png
+    - assets/flags/TZ_64.png
+    - assets/flags/UA_64.png
+    - assets/flags/UG_64.png
+    - assets/flags/UM_64.png
+    - assets/flags/US_64.png
+    - assets/flags/UY_64.png
+    - assets/flags/UZ_64.png
+    - assets/flags/VA_64.png
+    - assets/flags/VC_64.png
+    - assets/flags/VE_64.png
+    - assets/flags/VG_64.png
+    - assets/flags/VI_64.png
+    - assets/flags/VN_64.png
+    - assets/flags/VU_64.png
+    - assets/flags/WF_64.png
+    - assets/flags/WS_64.png
+    - assets/flags/XK_64.png
+    - assets/flags/YE_64.png
+    - assets/flags/YT_64.png
+    - assets/flags/ZA_64.png
+    - assets/flags/ZM_64.png
+    - assets/flags/ZW_64.png
+    - assets/createaccount/rocket.png
+    - assets/createaccount/agree.png
+    - assets/createaccount/disagree.png
+    - assets/general_icons/arrowright.png
+    - assets/createaccount/Tick.png
+    - assets/fingerprint/finger.png
+    - assets/fingerprint/faceid.png
+    - assets/learnmore/image_1.png
+    - assets/learnmore/image_2.png
+    - assets/learnmore/image_3.png
+    - assets/learnmore/image_1_landscape.png
+    - assets/learnmore/image_2_landscape.png
+    - assets/learnmore/image_3_landscape.png
+    - assets/payments/card/error.png
+    - assets/payments/card/insert.png
+    - assets/payments/card/success.png
+    - assets/payments/card/type_pin.png
+    - assets/payments/card/verifying.png
+    - assets/shopping/coupon.png
+    - assets/shopping/dots.png
+    - assets/shopping/delivery.png
+    - assets/shopping/clear.png
+    - assets/shopping/discount.png
+    - assets/customers/card.png
+    - assets/customers/Credit.png
+    - assets/customers/address.png
+    - assets/customers/calendar.png
+    - assets/customers/clock.png
+    - assets/customers/invoice.png
+    - assets/customers/loyalty.png
+    - assets/customers/mail.png
+    - assets/customers/mobile.png
+    - assets/customers/nothanks.png
+    - assets/customers/personal.png
+    - assets/customers/personal2.png
+    - assets/customers/add_customer.png
+    - assets/customers/firstname.png
+    - assets/settingIcons/Device.png
+    - assets/settingIcons/Hardware.png
+    - assets/settingIcons/Loyality.png
+    - assets/settingIcons/PaymentOption.png
+    - assets/settingIcons/Transaction.png
+    - assets/settingIcons/CashManagement.png
+    - assets/settingIcons/Customize.png
+    - assets/settingIcons/Employees.png
+    - assets/settingIcons/NoSettings.png
+    - assets/devices/Camera.png
+    - assets/devices/Sound.png
+    - assets/devices/Fingerprint.png
+    - assets/hardware/CardReader.png
+    - assets/hardware/CashDrawer.png
+    - assets/hardware/Printer.png
+    - assets/employee/Name.png
+    - assets/employee/Address.png
+    - assets/employee/Birthdate.png
+    - assets/employee/Country.png
+    - assets/employee/Email.png
+    - assets/employee/MobileNumber.png
+    - assets/employee/userplaceholder.png
+    - assets/my_account/Business.png
+    - assets/my_account/arrowleft.png
+    - assets/my_account/Calendar.png
+    - assets/my_account/Category.png
+    - assets/my_account/Country.png
+    - assets/my_account/Currency.png
+    - assets/my_account/Edit.png
+    - assets/my_account/GST.png
+    - assets/my_account/InApp.png
+    - assets/my_account/Industry.png
+    - assets/my_account/Invoice.png
+    - assets/my_account/Language.png
+    - assets/my_account/Location.png
+    - assets/my_account/Mobile.png
+    - assets/my_account/Name.png
+    - assets/my_account/Notifications.png
+    - assets/my_account/PANNumber.png
+    - assets/my_account/Password.png
+    - assets/my_account/Personal.png
+    - assets/my_account/Reports.png
+    - assets/my_account/SMS.png
+    - assets/my_account/Store.png
+    - assets/my_account/Type.png
+    - assets/my_account/YearlyRevenue.png
+    - assets/my_account/Cafe.png
+    - assets/my_account/view.png
+    - assets/my_account/type_sh.png
+    - assets/my_account/country_sh.png
+    - assets/my_account/yearly_sh.png
+    - assets/my_account/industry_sh.png
+    - assets/my_account/category_sh.png
+    - assets/my_account/pan_sh.png
+    - assets/my_account/upload.png
+    - assets/highcharts.js
+    - assets/exporting.js
+    - assets/export-data.js
+    - assets/chart_area.html
+    - assets/chart_area_landscape.html
+    - assets/receipt/barcode.png
+    - assets/magiclink/logo_magic.png
+    - assets/magiclink/phone_magic.png
+    - assets/magiclink/phones_magic.png
+    - assets/magiclink/tablet_magic.png
+    - assets/magiclink/mail_magic.png
+  #  - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat/Montserrat-Italic.ttf
+          style: italic
+        - asset: fonts/Montserrat/Montserrat-Black.ttf
+          weight: 900
+        - asset: fonts/Montserrat/Montserrat-BlackItalic.ttf
+          style: italic
+          weight: 900
+        - asset: fonts/Montserrat/Montserrat-ExtraBold.ttf
+          weight: 800
+        - asset: fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf
+          style: italic
+          weight: 800
+        - asset: fonts/Montserrat/Montserrat-Bold.ttf
+          weight: 700
+        - asset: fonts/Montserrat/Montserrat-BoldItalic.ttf
+          style: italic
+          weight: 700
+        - asset: fonts/Montserrat/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Montserrat/Montserrat-SemiBoldItalic.ttf
+          style: italic
+          weight: 600
+        - asset: fonts/Montserrat/Montserrat-Medium.ttf
+          weight: 500
+        - asset: fonts/Montserrat/Montserrat-MediumItalic.ttf
+          style: italic
+          weight: 500
+        - asset: fonts/Montserrat/Montserrat-Light.ttf
+          weight: 300
+        - asset: fonts/Montserrat/Montserrat-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: fonts/Montserrat/Montserrat-Thin.ttf
+          weight: 200
+        - asset: fonts/Montserrat/Montserrat-ThinItalic.ttf
+          style: italic
+          weight: 200
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
